@@ -14,3 +14,5 @@ python3 qrexample-working.py
 ```
 
 change colors in qrexample-working.py
+
+Also see : https://pypi.org/project/qrcode/
