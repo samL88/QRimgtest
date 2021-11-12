@@ -4,6 +4,8 @@ test repo for embedding logo into QR image and color, format customization
 
 ## how to run
 
+Requires at least python3.8
+
 ```
 python -m venv venv
 source venv/bin/activate
