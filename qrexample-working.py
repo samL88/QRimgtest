@@ -20,20 +20,23 @@ lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D
 qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(lnurl)
 
-img_2 = qr.make_image(image_factory=StyledPilImage, color_mask=RadialGradiantColorMask(back_color=GREY,
-                                                                                       center_color=YELLOW,
-                                                                                       edge_color=RED))
-img_2.save('images/lnurl.png')
-im = Image.open('images/lnurl.png')
-im = im.convert("RGBA")
+QRimg = qr.make_image(image_factory=StyledPilImage, 
+                     color_mask=RadialGradiantColorMask(back_color=GREY, 
+                     center_color=TEAL, edge_color=BLUE))
+QRimg.save('images/lnurl.png')
 
 logo = Image.open('images/grey_logo.png')
-#box = (220,220,320,320)
-box = (215,215,315,315)
-im.crop(box)
-region = logo
-region = region.resize((box[2] - box[0], box[3] - box[1]))
-im.paste(region,box)
-im.save('output.png')
+basewidth = 100
 
-im.show()
+# adjust image size
+wpercent = (basewidth/float(logo.size[0]))
+hsize = int((float(logo.size[1])*float(wpercent)))
+logo = logo.resize((basewidth, hsize), Image.ANTIALIAS)
+
+# set size of QR code
+pos = ((QRimg.size[0] - logo.size[0]) // 2,
+       (QRimg.size[1] - logo.size[1])// 2)
+
+QRimg.paste(logo, pos)
+QRimg.save('output.png')
+QRimg.show()
