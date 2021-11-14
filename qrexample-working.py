@@ -1,5 +1,6 @@
 from PIL import Image
 import qrcode
+import qrcode.image.svg
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.colormasks import RadialGradiantColorMask
 # from qrcode.image.styles.moduledrawers import RoundedModuleDrawer
@@ -7,12 +8,16 @@ from qrcode.image.styles.colormasks import RadialGradiantColorMask
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
+DEEP_RED = (170, 0, 0)
 TEAL = (0, 255, 255)
 BLUE = (0, 0, 255)
-#GREY = (80,80,80)
-GREY = (35,35,35)
+GREY = (80,80,80)
+#GREY = (35,35,35)
 LTGREY = (150,150,150)
 YELLOW = (255, 255, 0)
+ORANGE = (255, 125, 0)
+L_YELLOW = (195,182,108)
+D_YELLOW = (142, 116, 56)
 
 lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
 
@@ -20,9 +25,14 @@ lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D
 qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(lnurl)
 
+factory = qrcode.image.svg.SvgPathImage
+svg_img = qrcode.make(lnurl, image_factory=factory)
+svg_img.save('qr.svg')
+
+
 QRimg = qr.make_image(image_factory=StyledPilImage, 
-                     color_mask=RadialGradiantColorMask(back_color=GREY, 
-                     center_color=TEAL, edge_color=BLUE))
+                     color_mask=RadialGradiantColorMask(back_color=WHITE, 
+                     center_color=DEEP_RED, edge_color=DEEP_RED))
 QRimg.save('images/lnurl.png')
 
 logo = Image.open('images/grey_logo.png')
