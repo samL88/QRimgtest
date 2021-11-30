@@ -5603,7 +5603,7 @@
          x="7.3652344"
          y="32.885989"><tspan
            dx="0 0 0 0 0 0 0 0 6.1264687 0 0 6.1264677 0 0 0 6.1264696"
-           style="text-align:justify;text-anchor:start">Bitcoin on the Lightning </tspan></tspan><tspan
+           style="text-align:justify;text-anchor:start">Bitcoin on the Lightning* </tspan></tspan><tspan
          x="7.3652344"
          y="38.177649"><tspan
            dx="0 0 0 0 0 0 0 0 0 1.6989068 0 0 1.6989068 0 0 0 0 1.6989068 0 0 0 1.6989068"
@@ -5629,7 +5629,7 @@
          x="7.3652344"
          y="64.635969"><tspan
            style="text-align:justify;text-anchor:start">front with a </tspan><tspan
-           style="text-align:justify;text-anchor:start">Lightning wallet. </tspan></tspan></text>
+           style="text-align:justify;text-anchor:start">Lightning wallet.</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:2.65372px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.199029"
@@ -5640,12 +5640,12 @@
          id="tspan2143"
          x="2.9227746"
          y="153.96342"
-         style="font-size:2.65372px;stroke-width:0.199029">To learn more, visit</tspan><tspan
+         style="font-size:2.65372px;stroke-width:0.199029">*Lightning is a reliable second layer on top of Bitcoin blockchain to save transaction fee and shorten transaction time. To learn more, visit</tspan><tspan
          sodipodi:role="line"
          x="2.9227746"
          y="157.28058"
          style="font-size:2.65372px;stroke-width:0.199029"
-         id="tspan2147">www.bitcoin.org.hk/laisee</tspan></text>
+         id="tspan2147">https://www.bitcoin.org.hk/laisee</tspan></text>
     <path
        d="m 65.420769,99.215754 h -0.1043 c -5.3e-4,0.41466 -0.33674,0.75051 -0.75157,0.75136 -0.41465,-5.3e-4 -0.75054,-0.33676 -0.75135,-0.75136 5.3e-4,-0.41507 0.33675,-0.75069 0.75135,-0.75132 0.41508,5.2e-4 0.75072,0.33628 0.75157,0.75132 h 0.1043 0.10429 c -1.7e-4,-0.53029 -0.4298,-0.95991 -0.96008,-0.95991 -0.5301,0 -0.95969,0.42962 -0.95969,0.95991 0,0.53012 0.42959,0.959656 0.95969,0.959886 0.53028,-1.9e-4 0.95987,-0.429766 0.96008,-0.959886 h -0.10429"
        style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.0208534"
