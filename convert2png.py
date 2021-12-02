@@ -1,10 +1,7 @@
-import pyvips
+# -*- coding: utf-8 -*-
+from svglib.svglib import svg2rlg
+from reportlab.graphics import renderPM
 
-image = pyvips.Image.new_from_file("svgs/2022-01_tiger.svg", dpi=300)
-image.write_to_file("tiger.png")
-
-
-image = pyvips.Image.thumbnail("svgs/2022-01_tiger.svg", width=200, height=300)
-image.write_to_file("tigerthumb.png")
-
-
+# doesn't work too well with QR codes
+drawing = svg2rlg('qr.svg')
+renderPM.drawToFile(drawing, 'outqr.png', fmt='PNG')
