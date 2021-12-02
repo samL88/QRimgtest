@@ -27,6 +27,7 @@ qr.add_data(lnurl)
 
 factory = qrcode.image.svg.SvgPathImage
 svg_img = qrcode.make(lnurl, image_factory=factory)
+# make qr svg red color
 svg_img.save('qr.svg')
 
 

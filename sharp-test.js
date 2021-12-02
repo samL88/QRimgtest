@@ -13,6 +13,6 @@ async function convert(input, output) {
       })  
 }
 
-infile = "svgs/2022-01_tiger.svg"
+infile = "svgs/2022tiger.svg"
 outfile = "images/2022tiger.png"
 convert(infile, outfile)
