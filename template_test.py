@@ -47,8 +47,6 @@ svg_img.save('qrcolor.svg')
 with open('templates/inlet_tiger_cut.svg', 'r') as f:
     templ = f.read()
 
-qrcode = "\"images/red_lnurl.png\""
-
 qrcode = "\"" + "qrcolor.svg" + "\""
 idnumber = "f7dfwer7a8cd43aabsdfs"
 expires = "2022-03-15"
