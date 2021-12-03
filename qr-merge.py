@@ -27,8 +27,13 @@ factory = qrcode.image.svg.SvgPathImage
 # QR_PATH_STYLE = {'fill': '#000000', 'fill-opacity': '1',
 #                     'fill-rule': 'nonzero', 'stroke': 'none'}
 
-# update fill color to red
-factory.QR_PATH_STYLE['fill'] = '#ae0909'
+# update fill color to red, # gold yellow #C3B66C
+
+red = '#ae0909'
+yellow = '#C3B66C'
+black = '#000000'
+
+factory.QR_PATH_STYLE['fill'] = black
 print(factory.QR_PATH_STYLE['fill'])
 
 svg_img = qrcode.make(lnurl, image_factory=factory)
