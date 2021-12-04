@@ -10,6 +10,8 @@ from qrcode.image.styles.colormasks import RadialGradiantColorMask
 RED = (255, 0, 0)
 DEEP_RED = (170, 0, 0)
 WHITE = (255, 255, 255)
+L_YELLOW = (195,182,108) # #C3B66C
+D_YELLOW = (142, 116, 56) # #8E7438
 
 lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
 
@@ -17,11 +19,10 @@ qr = qrcode.QRCode(
     version=1,
     error_correction=qrcode.constants.ERROR_CORRECT_H,
     box_size=10,
-    border=4,
+    border=0.5,
 )
 
 # 30% or greater error conversion
-#qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
 qr.add_data(lnurl)
 qr.make(fit=True)
 
@@ -33,16 +34,19 @@ factory = qrcode.image.svg.SvgPathImage
 
 red = '#ae0909'
 yellow = '#C3B66C'
+dkyellow = '#8E7438'
 black = '#000000'
-
+white = '#ffffff'
 other = '#5b1110ff'
 
-factory.QR_PATH_STYLE['fill'] = other
+factory.QR_PATH_STYLE['fill'] = '#ffffff'
 print(factory.QR_PATH_STYLE['fill'])
+
+factory.background = red
+print(factory.background)
 
 svg_img = qrcode.make(lnurl, image_factory=factory)
 svg_img.save('qrcolor.svg')
-
 
 with open('templates/inlet_tiger_cut.svg', 'r') as f:
     templ = f.read()
