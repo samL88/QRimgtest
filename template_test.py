@@ -27,6 +27,14 @@ idnumber = "f7dfwer7a8cd43aabsdfs"
 expires = "2022-03-15"
 sats = "2500"
 
+'''
+EDIT YOUR TEMPLATE FILE 
+to refer to lnurl_file and qr_code, idnumber, expires and sats
+with {{ }}
+
+example: {{sats}}
+
+'''
 
 def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
     # todo: check if lnurl is valid
