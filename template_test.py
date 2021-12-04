@@ -18,6 +18,7 @@ D_YELLOW = (142, 116, 56) # #8E7438
 
 lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
 
+# this works
 lnurl_file = "images/lnurl.png"
 pyqr = pyqrcode.create(lnurl)
 pyqr.png(lnurl_file, scale=3, module_color=[255,255,255,255], background=[170, 0, 0])
@@ -31,15 +32,15 @@ qr = qrcode.QRCode(
 )
 
 # 30% or greater error conversion
-qr.add_data(lnurl)
-qr.make(fit=True)
+#qr.add_data(lnurl)
+#qr.make(fit=True)
 
-factory = qrcode.image.svg.SvgPathImage
+#factory = qrcode.image.svg.SvgPathImage
 
 # QR_PATH_STYLE = {'fill': '#000000', 'fill-opacity': '1',
 #                     'fill-rule': 'nonzero', 'stroke': 'none'}
 # update fill color to red, # gold yellow #C3B66C
-
+'''
 red = '#ae0909'
 yellow = '#C3B66C'
 dkyellow = '#8E7438'
@@ -55,6 +56,7 @@ print(factory.background)
 
 svg_img = qrcode.make(lnurl, image_factory=factory)
 svg_img.save('qrcolor.svg')
+'''
 
 with open('templates/inlet_tiger_cut.svg', 'r') as f:
     templ = f.read()
