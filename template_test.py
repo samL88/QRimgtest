@@ -10,9 +10,14 @@ from qrcode.image.styles.colormasks import RadialGradiantColorMask
 import pyqrcode
 import subprocess
 
-# QR_PATH_STYLE = {'fill': '#000000', 'fill-opacity': '1',
-#                     'fill-rule': 'nonzero', 'stroke': 'none'}
-# update fill color to red, # gold yellow #C3B66C
+'''
+EDIT YOUR TEMPLATE FILE 
+to refer to lnurl_file and qr_code, idnumber, expires and sats
+with {{ }}
+
+example: {{sats}}
+
+'''
 
 RED = (255, 0, 0)
 DEEP_RED = (170, 0, 0)  # '#ae0909'
@@ -26,15 +31,6 @@ output_png = 'output.png'
 idnumber = "f7dfwer7a8cd43aabsdfs"
 expires = "2022-03-15"
 sats = "2500"
-
-'''
-EDIT YOUR TEMPLATE FILE 
-to refer to lnurl_file and qr_code, idnumber, expires and sats
-with {{ }}
-
-example: {{sats}}
-
-'''
 
 def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
     # todo: check if lnurl is valid
