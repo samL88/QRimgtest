@@ -1,19 +1,27 @@
 #!/usr/bin/env python
 
 from jinja2 import Template 
-#from PIL import Image
+from PIL import Image
 import qrcode
 import qrcode.image.svg
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.colormasks import RadialGradiantColorMask
 
+import pyqrcode
+
+
 RED = (255, 0, 0)
-DEEP_RED = (170, 0, 0)
+DEEP_RED = (170, 0, 0)  # '#ae0909'
 WHITE = (255, 255, 255)
 L_YELLOW = (195,182,108) # #C3B66C
 D_YELLOW = (142, 116, 56) # #8E7438
 
 lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
+
+lnurl_file = "images/lnurl.png"
+pyqr = pyqrcode.create(lnurl)
+pyqr.png(lnurl_file, scale=3, module_color=[255,255,255,255], background=[170, 0, 0])
+
 
 qr = qrcode.QRCode(
     version=1,
@@ -51,13 +59,14 @@ svg_img.save('qrcolor.svg')
 with open('templates/inlet_tiger_cut.svg', 'r') as f:
     templ = f.read()
 
-qrcode = "\"" + "qrcolor.svg" + "\""
+#qr_code = "\"" + "qrcolor.svg" + "\""
+qr_code = "\"" + "images/lnurl.png" + "\""
 idnumber = "f7dfwer7a8cd43aabsdfs"
 expires = "2022-03-15"
 sats = "2000"
 
 tm = Template(templ)
-msg = tm.render(qrcode=qrcode, idnumber=idnumber, expires=expires, sats=sats)
+msg = tm.render(qrcode=qr_code, idnumber=idnumber, expires=expires, sats=sats)
 
 with open('output.svg', 'w') as f:
     res = f.write(msg)

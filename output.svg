@@ -6740,7 +6740,7 @@ F5KacKUAAAAASUVORK5CYII=
          width="166.29921"
          height="166.51379"
          preserveAspectRatio="none"
-         href={{qrcode}}
+         href="images/lnurl.png"
          id="image4277"
          x="811.72894"
          y="208.38103" />
@@ -6754,12 +6754,12 @@ F5KacKUAAAAASUVORK5CYII=
            x="836.52643"
            y="408.17209"
            style="font-size:8.00001px;stroke-width:0.999999"
-           id="tspan4207">id #: {{idnumber}}</tspan><tspan
+           id="tspan4207">id #: f7dfwer7a8cd43aabsdfs</tspan><tspan
            sodipodi:role="line"
            x="836.52643"
            y="418.17209"
            style="font-size:8.00001px;stroke-width:0.999999"
-           id="tspan4281">expiration date: {{expires}}</tspan></text>
+           id="tspan4281">expiration date: 2022-03-15</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;white-space:pre;inline-size:39.6557;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -6771,7 +6771,7 @@ F5KacKUAAAAASUVORK5CYII=
            y="84.555748"
            id="tspan81569"><tspan
              style="text-align:center;text-anchor:middle"
-             id="tspan81567">{{sats}} sats</tspan></tspan></text>
+             id="tspan81567">2000 sats</tspan></tspan></text>
     </g>
   </g>
 </svg>
