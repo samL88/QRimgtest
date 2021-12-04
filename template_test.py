@@ -35,8 +35,7 @@ qr = qrcode.QRCode(
 with open('templates/inlet_tiger_cut.svg', 'r') as f:
     templ = f.read()
 
-#qr_code = "\"" + "qrcolor.svg" + "\""
-qr_code = "\"" + "images/lnurl.png" + "\""
+qr_code = "\"" + lnurl_file + "\""
 idnumber = "f7dfwer7a8cd43aabsdfs"
 expires = "2022-03-15"
 sats = "2500"
