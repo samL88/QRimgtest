@@ -59,22 +59,7 @@ if __name__ == "__main__":
 
     output_png = create_laisee_qrcode(lnurl, idnumber, expires, sats)
 
-    '''
-    with open(lnurl_file, 'rb') as fp, open('lnurl.b64', 'bw') as fp2:
-        #base64.encode(fp, fp2)
-        data = fp.read()
-        base64qr = base64.b64encode(data).decode('utf-8')
-        print(base64qr)
-
-    
-    with open('lnurl.b64', 'r') as fqr:
-        content = fqr.read()
-        qrdata = "data:image/png;base64," + content
-        print(str(qrdata))
-    fqr.close()
-    '''
-
     # view file created
-    subprocess.run(['open', output_png])
+   #  subprocess.run(['open', output_png])
 
 
