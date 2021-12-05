@@ -14,7 +14,7 @@ Requires at least python3.8
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python3 qrexample-working.py 
+python3 test_template.py 
 ```
 
 - change colors in test_template.py
