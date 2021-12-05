@@ -3,6 +3,7 @@
 from jinja2 import Template 
 import pyqrcode
 import subprocess
+import base64
 
 '''
 EDIT YOUR TEMPLATE FILE 
@@ -32,11 +33,17 @@ def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
 
     # change your QR code foreground and background colors here
     pyqr.png(lnurl_file, scale=3, module_color=[170,0,0,255], background=[255, 255, 255])
+   
+    with open(lnurl_file, 'rb') as fp:
+        data = fp.read()
+        base64qr = base64.b64encode(data).decode('utf-8')
+        print(base64qr)
+
+    qr_code = "\"data:image/png;base64," + base64qr + "\""
 
     with open('templates/inlet_tiger_cut.svg', 'r') as f:
         templ = f.read()
 
-    qr_code = "\"" + lnurl_file + "\""
     tm = Template(templ)
     msg = tm.render(qrcode=qr_code, idnumber=idnumber, expires=expires, sats=sats)
 
@@ -52,5 +59,22 @@ if __name__ == "__main__":
 
     output_png = create_laisee_qrcode(lnurl, idnumber, expires, sats)
 
+    '''
+    with open(lnurl_file, 'rb') as fp, open('lnurl.b64', 'bw') as fp2:
+        #base64.encode(fp, fp2)
+        data = fp.read()
+        base64qr = base64.b64encode(data).decode('utf-8')
+        print(base64qr)
+
+    
+    with open('lnurl.b64', 'r') as fqr:
+        content = fqr.read()
+        qrdata = "data:image/png;base64," + content
+        print(str(qrdata))
+    fqr.close()
+    '''
+
     # view file created
     subprocess.run(['open', output_png])
+
+
