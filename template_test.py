@@ -37,7 +37,7 @@ def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
     with open(lnurl_file, 'rb') as fp:
         data = fp.read()
         base64qr = base64.b64encode(data).decode('utf-8')
-        print(base64qr)
+        # print(base64qr)
 
     qr_code = "\"data:image/png;base64," + base64qr + "\""
 
