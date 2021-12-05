@@ -31,7 +31,7 @@ def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
     pyqr = pyqrcode.create(lnurl)
 
     # change your QR code foreground and background colors here
-    pyqr.png(lnurl_file, scale=3, module_color=[255,255,255,255], background=[170, 0, 0])
+    pyqr.png(lnurl_file, scale=3, module_color=[170,0,0,255], background=[255, 255, 255])
 
     with open('templates/inlet_tiger_cut.svg', 'r') as f:
         templ = f.read()
