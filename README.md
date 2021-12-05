@@ -23,4 +23,4 @@ python3 test_template.py
 with {{ }}, For example: 
 
 ```<img 
-     href={{lnurl_file}}```
+     href={{lnurl_file}}
