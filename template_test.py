@@ -14,52 +14,58 @@ example: {{sats}}
 
 '''
 
-RED = (255, 0, 0)
-DEEP_RED = (170, 0, 0)  # '#ae0909'
-WHITE = (255, 255, 255)
+def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str, template_file: str):
 
-lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
+    try:
+        lnurl_file = "images/lnurl_" + idnumber + ".png" # make this id number based to prevent collision
+        output_svg = 'output_' + idnumber + '.svg'
+        output_png = 'output_' + idnumber + '.png'
 
-lnurl_file = "images/lnurl.png" # make this id number based for uniqueness
-output_svg = 'output.svg'
-output_png = 'output.png'
-idnumber = "f7dfwer7a8cd43aabsdfs"
-expires = "2022-03-15"
-sats = "2500"
+        # todo: check if lnurl is valid
+        pyqr = pyqrcode.create(lnurl,  error='H')
 
-def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str):
-    # todo: check if lnurl is valid
-    pyqr = pyqrcode.create(lnurl)
+        # change your QR code foreground and background colors here
+        pyqr.png(lnurl_file, scale=3, module_color=[170,0,0,255], background=[255, 255, 255])
+    
+        with open(lnurl_file, 'rb') as fp:
+            data = fp.read()
+            base64qr = base64.b64encode(data).decode('utf-8')
+            # print(base64qr)
+            fp.close()
 
-    # change your QR code foreground and background colors here
-    pyqr.png(lnurl_file, scale=3, module_color=[170,0,0,255], background=[255, 255, 255])
-   
-    with open(lnurl_file, 'rb') as fp:
-        data = fp.read()
-        base64qr = base64.b64encode(data).decode('utf-8')
-        # print(base64qr)
+        qr_code = "\"data:image/png;base64," + base64qr + "\""
 
-    qr_code = "\"data:image/png;base64," + base64qr + "\""
+        with open(template_file, 'r') as tf:
+            templ = tf.read()
+            tf.close()
 
-    with open('templates/inlet_tiger_cut.svg', 'r') as f:
-        templ = f.read()
+        tm = Template(templ)
+        msg = tm.render(qrcode=qr_code, idnumber=idnumber, expires=expires, sats=sats)
 
-    tm = Template(templ)
-    msg = tm.render(qrcode=qr_code, idnumber=idnumber, expires=expires, sats=sats)
+        with open(output_svg, 'w') as f:
+            f.write(msg)
+            f.close()
 
-    with open(output_svg, 'w') as f:
-        res = f.write(msg)
-        f.close()
+        subprocess.run(['rsvg-convert', output_svg, '-o', output_png, '-w' , '600'], cwd=".")
 
-    subprocess.run(['rsvg-convert', output_svg, '-o', output_png, '-w' , '600'], cwd=".")
-    return output_png
+        return output_png
 
+    except Exception as e: 
+        return str(e)
 
 if __name__ == "__main__":
 
-    output_png = create_laisee_qrcode(lnurl, idnumber, expires, sats)
+    template_file = 'templates/inlet_tiger_cut.svg'
+    lnurl = "LNURL1DP68GURN8GHJ7MR9VAJKUEPWD3HXY6T5WVHXXMMD9AKXUATJD3CZ7CTSDYHHVVF0D3H82UNV9UUNWVCE4EM6P"
+    idnumber = "f7bsdfs"
+    expires = "2022-03-15"
+    sats = "2500"
 
-    # view file created
-   #  subprocess.run(['open', output_png])
+    output_png = create_laisee_qrcode(lnurl, idnumber, expires, sats, template_file)
+    print(f'Output PNG created: {output_png}')
+
+
+    # view file created , works on OSX only
+    # subprocess.run(['open', output_png])
 
 
