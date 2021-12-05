@@ -19,8 +19,14 @@ python3 test_template.py
 
 - change colors in test_template.py
 
-- EDIT YOUR SVG TEMPLATE FILE to refer to lnurl_file and qr_code, idnumber, expires and sats
+- EDIT YOUR SVG TEMPLATE FILE to refer to qr_code, idnumber, expires and sats
 with {{ }}, For example: 
 
-```<img 
-     href={{lnurl_file}}
+```<image
+         width="166.29921"
+         height="166.51379"
+         preserveAspectRatio="none"
+         href={{qrcode}}
+         id="image4277"
+         x="811.72894"
+         y="208.38103" />
