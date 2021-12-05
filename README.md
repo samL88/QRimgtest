@@ -17,6 +17,10 @@ pip install -r requirements.txt
 python3 qrexample-working.py 
 ```
 
-change colors in test_template.py
+- change colors in test_template.py
 
-Also see : https://pypi.org/project/qrcode/
+- EDIT YOUR SVG TEMPLATE FILE to refer to lnurl_file and qr_code, idnumber, expires and sats
+with {{ }}, For example: 
+
+```<img 
+     href={{lnurl_file}}```
