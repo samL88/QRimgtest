@@ -18,8 +18,8 @@ def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str, tem
 
     try:
         lnurl_file = "images/lnurl_" + idnumber + ".png" # make this id number based to prevent collision
-        output_svg = 'output_' + idnumber + '.svg'
-        output_png = 'output_' + idnumber + '.png'
+        output_svg = 'images/output_' + idnumber + '.svg'
+        output_png = 'images/output_' + idnumber + '.png'
 
         # todo: check if lnurl is valid
         pyqr = pyqrcode.create(lnurl,  error='H')
@@ -47,11 +47,12 @@ def create_laisee_qrcode(lnurl: str, idnumber: str, expires: str, sats: str, tem
             f.close()
 
         subprocess.run(['rsvg-convert', output_svg, '-o', output_png, '-w' , '600'], cwd=".")
-
         return output_png
-
     except Exception as e: 
         return str(e)
+
+
+
 
 if __name__ == "__main__":
 
