@@ -5,3 +5,5 @@ venv
 .DS_Store
 node_modules
 package-lock.json
+sample.png
+sample.svg
