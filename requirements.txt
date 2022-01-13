@@ -1,7 +1,7 @@
 Jinja2==2.11.3
 PyQRCode==1.2.1
 qrcode==7.3.1
-Pillow==8.4.0
+Pillow==9.0.0
 reportlab==3.6.3 # non essential
 svglib==1.1.0 # non essential
 pypng==0.0.21
