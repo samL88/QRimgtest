@@ -8,12 +8,13 @@ You must have rsvg-convert installed
 
 ```
 sudo apt install librsvg2-bin
-sudo apt-get rsvg-convert
+sudo apt-get update
 ```
 
 Requires at least python3.8
 
 ```
+sudo apt install python3.10-venv
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
